@@ -69,7 +69,56 @@ SELECT common_name, count(*) FROM species
     INNER JOIN sightings ON species.species_id = sightings.species_id
         GROUP BY common_name;
 
+--3. Find all sightings where the location includes "Pass".
+SELECT * FROM sightings
+    WHERE location LIKE '%Pass%';
 
+
+--4.  List each ranger's name and their total number of sightings.
+SELECT name, count(*)  FROM rangers
+ JOIN sightings ON rangers.ranger_id = sightings.ranger_id
+    GROUP BY name;
+
+--5. List species that have never been sighted.
+SELECT * FROM species
+    WHERE species_id NOT IN (SELECT species_id FROM sightings);
+  
+
+--6. Show the most recent 2 sightings.
+SELECT * FROM sightings ORDER BY sighting_time DESC LIMIT 2;
+
+--7.  Update all species discovered before year 1800 to have status 'Historic'.
+UPDATE species
+    SET conservation_status = 'Historic'
+        WHERE extract(year from discovery_date) <  '1800';
+
+
+--8. Label each sighting's time of day as 'Morning', 'Afternoon', or 'Evening'.
+SELECT sighting_id,
+CASE 
+    WHEN extract(hour from sighting_time) < 12 THEN  'Morning'
+    WHEN extract(hour from sighting_time) < 17 THEN  'Afternoon'
+    WHEN extract(hour from sighting_time) < 24 THEN  'Evening'
+    
+    ELSE  
+     'nothing'
+END
+FROM sightings;
+
+
+--9. Delete rangers who have never sighted any species
+
+
+
+DELETE FROM rangers
+    WHERE ranger_id IN (SELECT ranger_id FROM sightings GROUP BY ranger_id);
+
+SELECT ranger_id FROM sightings GROUP BY ranger_id;
+
+
+
+
+ 
 
 
 SELECT * from rangers;
