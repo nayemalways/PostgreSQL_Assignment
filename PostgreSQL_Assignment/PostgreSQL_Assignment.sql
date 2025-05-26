@@ -107,20 +107,15 @@ FROM sightings;
 
 
 --9. Delete rangers who have never sighted any species
+SELECT CONSTRAINT_NAME FROM information_schema.key_column_usage
+WHERE TABLE_NAME = 'sightings' and column_name = 'ranger_id'; -- Get Foreign key constraing name
 
+ALTER TABLE sightings
+    DROP CONSTRAINT sightings_ranger_id_fkey; -- Delete foreign key constraings
 
+ALTER Table sightings
+    ADD FOREIGN KEY (ranger_id) REFERENCES rangers(ranger_id) ON DELETE CASCADE; -- Added foreign key constraing with ON DELETE CASCADE
 
 DELETE FROM rangers
-    WHERE ranger_id IN (SELECT ranger_id FROM sightings GROUP BY ranger_id);
+    WHERE ranger_id NOT IN (SELECT ranger_id FROM sightings GROUP BY ranger_id);
 
-SELECT ranger_id FROM sightings GROUP BY ranger_id;
-
-
-
-
- 
-
-
-SELECT * from rangers;
-SELECT * FROM species;
-SELECT * FROM sightings;
