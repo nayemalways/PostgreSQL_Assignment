@@ -64,6 +64,14 @@ INSERT INTO sightings(species_id, ranger_id, location, sighting_time, notes)
 INSERT INTO rangers(name, region) VALUES('Derek Fox', 'Coastal Plains');
 
 
+--2.  Count unique species ever sighted.
+SELECT common_name, count(*) FROM species
+    INNER JOIN sightings ON species.species_id = sightings.species_id
+        GROUP BY common_name;
+
+
+
+
 SELECT * from rangers;
 SELECT * FROM species;
 SELECT * FROM sightings;
