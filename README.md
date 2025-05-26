@@ -1,14 +1,11 @@
 # Bonus Section Answer
 
-1.**PostgreSQL:** PostgresSQL is an open-source Database Management System (DBMS). It is a SQL (Structured Query Language) database. Postgres is a higher lavel RDBMS. It's help to write complex query and highly efficient. It provide us best performance and scalability, multiversion concurrency control services, deep language support. PSQL is 100% open source DBMS. <br/>
-   
+1.**PostgreSQL:** PostgresSQL is an open-source Database Management System (DBMS). It is a SQL (Structured Query Language) database. Postgres is a higher lavel RDBMS. It's help to write complex query and highly efficient. It provide us best performance and scalability, multiversion concurrency control services, deep language support. PSQL is 100% open source DBMS. <br/> <br/>
 2. **Schema:** When we create a database, a public schema is created by-default. Schema's are like box. We normaly working in a public schema.
-Schemas allow us to organize database objects tables, views, indexing, function etc. A database can have one or more schema.
-
+Schemas allow us to organize database objects tables, views, indexing, function etc. A database can have one or more schema. <br/> <br/>
 3. **Primary key:** Primary key is a column in a database. It uniquely identifies each row in a table. It might be unique and incremental. The key should not be null. <br/>
-**Foreign Key:** A foreign key is a column. It creates relationship between two tables. This key refers to the primary key of a parent table.
-
-***Example:*** For example, we have two tables 'departments' and 'students'. Now, department table has field like **department_id, department_name** etc. Here department_id is a Primary key of the departments table.
+**Foreign Key:** A foreign key is a column. It creates relationship between two tables. This key refers to the primary key of a parent table. <br/>  
+For example, we have two tables 'departments' and 'students'. Now, department table has field like **department_id, department_name** etc. Here department_id is a Primary key of the departments table.
 In Students table has some column including **student_id, student_name** and **department_id**. Here **department_id** is a foreign key that established a relationship between departments and students tables.
 
 4.**Data Types:** `CHAR` and `VARCHAR` is two data types in PostgreSQL. The difference both are the CHAR data types stored fixed length of strings and the VARCHAR is stored characters strings of variable strings. <br/> <br/>
