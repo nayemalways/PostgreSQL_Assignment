@@ -60,6 +60,8 @@ INSERT INTO sightings(species_id, ranger_id, location, sighting_time, notes)
 
 
 
+--1. Register a new ranger with provided data with name = 'Derek Fox' and region = 'Coastal Plains'
+INSERT INTO rangers(name, region) VALUES('Derek Fox', 'Coastal Plains');
 
 
 SELECT * from rangers;
